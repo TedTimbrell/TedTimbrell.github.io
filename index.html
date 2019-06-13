@@ -20,8 +20,19 @@
 	</style>
   </head>
   <body>
-  	<nav class="navbar navbar-dark bg-dark">
+  	<nav class="navbar navbar-expand navbar-dark bg-dark">
   		<a class="navbar-brand" href="#">timbrell.dev</a>
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <a class="nav-link" href="/blog">blog</a>
+	      </li>
+	  </ul>
+	  </div>
   	</nav>
   	<div class="container">
 	 	<div class="jumbotron">
@@ -41,7 +52,7 @@
 		      <a href="https://github.com/EECS-393-Team/worldview"><button type="button" class="btn btn-primary" >Check it out on GitHub</button></a>
 		    </div>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-bottom: 1rem;">
 		    <div class="col-sm">
 		      <h2>Synchrony</h2>
 		      <p>Winner of my Univerity Departments "Best Senior Project Award", Synchrony was a service that hosted a legal platform for synchronous Spotify playback for multiple users using Spotify's local playback API and a Django server we set up to maintain each lobby's playback state. I'm a big fan of social acitivies and synchronous media experiences and would love for this kind of thing to return to Netflix and be properly integrated into Spotify.</p>
