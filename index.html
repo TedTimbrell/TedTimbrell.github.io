@@ -10,61 +10,67 @@
 
     <title>timbrell.dev</title>
     <style>
-    	.row{
-    		margin-top: 1rem;
-    	}
-    	.jumbotron{
-    		background-image: linear-gradient(135deg, #6a9ef7 , #b2ceff);
-    		/*background-size: cover;*/
-    	}
-	</style>
+      .row{
+        margin-top: 1rem;
+      }
+      .jumbotron{
+        background-image: linear-gradient(135deg, #6a9ef7 , #b2ceff);
+        /*background-size: cover;*/
+      }
+      .gray-bg{
+        background-color: #848484;
+      }
+      .footer{
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+      }
+  </style>
   </head>
   <body>
-  	<nav class="navbar navbar-expand navbar-dark bg-dark">
-  		<a class="navbar-brand" href="#">timbrell.dev</a>
-	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">timbrell.dev</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item">
-	        <a class="nav-link" href="/blog">blog</a>
-	      </li>
-	  </ul>
-	  </div>
-  	</nav>
-  	<div class="container">
-	 	<div class="jumbotron" style="margin-top: 1rem;">
-		  <h1 class="display-4">Hello, world!</h1>
-		  <p class="lead">I'm Theodore Timbrell. Software Engineer, AI Wannabe, and Anosmiac. Feel free to call me Ted.</p>
-		  <hr class="my-4">
-		  <p>Feel free to reach out over on <a href="https://github.com/tedtimbrell">GitHub</a> or <a href="https://linkedin.com/in/ted-timbrell">LinkedIn</a></p>
-		</div>
-		<div class="row">
-		    <div class="col-sm">
-		      <h2>About Me</h2>
-		      <p>Originally from NJ, I'm currently living in San Francisco working as a Software Engineer for a startup. I graduated from CWRU (glorious Cleveland, Ohio) in May 2019 with a B.S. in Computer Science with a concentration in Artificial Intelligence. Prior to my current gig I've had four internships and a research position with a machine learning lab (Thank you Dr. Ray).</p>
-		    </div>
-		    <div class="col-sm">
-		      <h2>WorldView</h2>
-		      <p>WorldView was a project I came up with and worked on for my Software Engineering course (ya know, the one with all the UML diagrams and design documents). The project never ended up in quite the completed state I'd wanted it sadly, but the idea I think is a noble one. WorldView was designed to query the same URL from various locations across the globe and compare the relative output to detect if a news site is censoring or catering content for a certain audience. In my opinion, an additional aspect to fake news is simply living in our own realities. WorldView was hoping to make that more difficult.</p>
-		      <a href="https://github.com/EECS-393-Team/worldview"><button type="button" class="btn btn-primary" >Check it out on GitHub</button></a>
-		    </div>
-		</div>
-		<div class="row" style="margin-bottom: 1rem;">
-		    <div class="col-sm">
-		      <h2>Synchrony</h2>
-		      <p>Winner of my Univerity Departments "Best Senior Project Award", Synchrony was a service that hosted a legal platform for synchronous Spotify playback for multiple users using Spotify's local playback API and a Django server we set up to maintain each lobby's playback state. I'm a big fan of social acitivies and synchronous media experiences and would love for this kind of thing to return to Netflix and be properly integrated into Spotify.</p>
-		    </div>
-		    <div class="col-sm">
-		      <h2>Instagram/Social Media</h2>
-		      <p>I keep a blog of cool photos that I've taken. I try to only post stuff that I think has some form of artisitic value. I dislike social media bragging so I try to keep anything ritzy to a minimum.</p>
-		      <a href="https://www.instagram.com/t.timbrell/"><button type="button" class="btn btn-primary">Check it out on Instagram</button></a>
-		    </div>
-		</div>
-	</div>
-    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">blog</a>
+        </li>
+    </ul>
+    </div>
+    </nav>
+    <div class="container">
+    <div class="jumbotron" style="margin-top: 1rem;">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">I'm Theodore Timbrell. Software Engineer, AI Wannabe, and Anosmiac. Feel free to call me Ted.</p>
+      <hr class="my-4">
+      <p>Feel free to reach out over on <a href="https://github.com/tedtimbrell">GitHub</a> or <a href="https://linkedin.com/in/ted-timbrell">LinkedIn</a></p>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+          <h2>About Me</h2>
+          <p>Originally from NJ, I'm currently living in San Francisco working as a Software Engineer for a startup. I graduated from CWRU (glorious Cleveland, Ohio) in May 2019 with a B.S. in Computer Science with a concentration in Artificial Intelligence. Prior to my current gig I've had four internships and a research position with a machine learning lab (Thank you Dr. Ray).</p>
+        </div>
+        <div class="col-sm">
+          <h2>WorldView</h2>
+          <p>WorldView was a project I came up with and worked on for my Software Engineering course (ya know, the one with all the UML diagrams and design documents). The project never ended up in quite the completed state I'd wanted it sadly, but the idea I think is a noble one. WorldView was designed to query the same URL from various locations across the globe and compare the relative output to detect if a news site is censoring or catering content for a certain audience. In my opinion, an additional aspect to fake news is simply living in our own realities. WorldView was hoping to make that more difficult.</p>
+          <a href="https://github.com/EECS-393-Team/worldview"><button type="button" class="btn  btn-dark" >Check it out on GitHub</button></a>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 1rem;">
+        <div class="col-sm">
+          <h2>Synchrony</h2>
+          <p>Winner of my Univerity Departments "Best Senior Project Award", Synchrony was a service that hosted a legal platform for synchronous Spotify playback for multiple users using Spotify's local playback API and a Django server we set up to maintain each lobby's playback state. I'm a big fan of social acitivies and synchronous media experiences and would love for this kind of thing to return to Netflix and be properly integrated into Spotify.</p>
+        </div>
+        <div class="col-sm">
+          <h2>Instagram/Social Media</h2>
+          <p>I keep a blog of cool photos that I've taken. I try to only post stuff that I think has some form of artisitic value. I dislike social media bragging so I try to keep anything braggy to a minimum.</p>
+          <a href="https://www.instagram.com/t.timbrell/"><button type="button" class="btn  btn-dark">Instagram</button></a>
+        </div>
+    </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
