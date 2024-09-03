@@ -284,7 +284,7 @@ Again, not the cleanest training process in the world. My dataset is also tiny s
 Let's see how the model is doing with the general MNIST dataset now that I've polluted it with my horrible handwriting style.
 
 {% highlight python %}
-learn.validate(dl=personal_dl)
+learn.validate(dl=mnist_dl)
 {% endhighlight %}
 
 | Loss       | Accuracy          |
