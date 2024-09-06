@@ -4,41 +4,41 @@ title:  "Dysgraphia or: can a MNIST-trained ResNet read my clinically atrocious 
 date:   2024-09-02 11:11:40 -0800
 categories: AI
 ---
-When I was 11 years old I was told I had a learning disability called [Dysgraphia](https://en.wikipedia.org/wiki/Dysgraphia), although it's now called "an impairment in written expression" by the DSM-5. This wasn't a surprise given my handwriting was pretty bad, writing even the slightest bit legibly took forever, and by the 4th grade I was already starting to lose points on assignments because I'd lose track of what I had written. Thankfully, a middle school guidance counselor was reasonably well read on it and got me an accommodation to use my laptop for notes, assignments, and tests.
+When I was 11 years old I was told I had a learning disability called [Dysgraphia](https://en.wikipedia.org/wiki/Dysgraphia), although it's now called "an impairment in written expression" by the DSM-5. This wasn't a surprise given my handwriting was pretty bad, writing even the slightest bit legibly took forever, and by the 4th grade I was already starting to lose points on assignments because I'd lose track of what I had written. Thankfully, a middle school guidance counselor was reasonably well-read on it and got me an accommodation to use my laptop for notes, assignments, and tests.
 
-Dysgraphia isn't super well known. It's also, given the DSM-5 name, not well categorized yet. All that is to say, everyone's experience of this may be different. Just in case you think I'm full of it, I'll quote from the report of an occupational therapist who tested me when I was 15.
+Dysgraphia isn't super well-known. It's also, given the DSM-5 name, not well categorized yet. All that is to say, everyone's experience of this may be different. Just in case you think I'm full of it, I'll quote from the report of an occupational therapist who tested me when I was 15.
 
 > Standardized testing reveals significant deficits in visual motor integration (scores in the first percentile visual motor search and visual motor speed) for an individual in his age group. Standardized testing also indicates moderate deficits in 2 areas of fine motor function (fine motor precision and manual dexterity) for an individual in his age group. Deficits in these areas affect an individual's ability to complete graphomotor tasks with adequate speed, legibility, and efficiency. Ted demonstrates rapid hand fatigue with only g minutes of continuous writing.
 
-I never actually read this report until this week. I remember my mom sending it to me an my eyes glazed over after the first paragraph. I was a pretty unfocused kid and as long as that report let me type for standardized tests \(like the SAT\), then I was happy. 
+I never actually read this report until this week. I remember my mom sending it to me and my eyes glazing over after reading the first paragraph. I was a pretty unfocused kid and as long as that report let me type for standardized tests \(like the SAT\), then I was happy. 
 
-But hey! I'm a part of the 1%! ... of the slowest hand-writers. Maybe visual motor integration changes significantly between 15 and 27 but given that the test was for adolescents and adults, I'm just going to consider it broadly applicable.
+But hey! I'm a part of the 1%! ... of the slowest hand-writers. Maybe visual motor integration changes significantly between 15 and 27 but given that the test was for adolescents and adults, I will consider it broadly applicable.
 
-I'm not sure how interpret 1%. If one were to have a 1st percentile IQ, they'd have an IQ of roughly 65. On the other hand 1% is still a large population. There were 1200 kids in my highschool, implying there might have been 12 other kids who wrote slower than I did. I believe there were at least 3-4 others in my highschool that typed (at least for tests) so this math _sort of_ works out. 
+I'm not sure how to interpret 1%. If one were to have a 1st percentile IQ, they'd have an IQ of roughly 65. On the other hand, 1% is still a large population. There were 1200 kids in my high school, implying there might have been 12 other kids who wrote slower than I did. I believe there were at least 3-4 others in my high school that typed (at least for tests) so this math _sort of_ works out. 
 
 > dysgraphia is common in children with autism spectrum disorder (ASD) and/or attention deficit hyperactivity disorder (ADHD). [source](https://my.clevelandclinic.org/health/diseases/23294-dysgraphia)
 
-The only thing I was diagnosed with while a kid was Dysgraphia which as far as I can tell isn't super common. For one, lol. Without directly outing much more of my medical history, I'll generally refer you back to the line where, at 15 years old, a four page document about _me specifically_ made my eyes glaze over.
+The only thing I was diagnosed with while a kid was Dysgraphia which as far as I can tell isn't super common. For one, lol. Without directly outing much more of my medical history, I'll generally refer you back to the line where, at 15 years old, a four-page document about _me specifically_ made my eyes glaze over.
 
 Secondly, I'll use this to speculate that some of those in that 1% might have had ASD, in such forms that they required different schooling, attention, or classes. In middle school and high school I was in the "default" tracked classes i.e. I wasn't in any special needs programs, foundation-focused/remedial courses, or accelerated/honors classes. I wonder if I was simply isolated from seeing other students who struggled with this in the same way I did. 
 
 > Q: Wasn't this supposed to be a blog post about MNIST and Machine Learning?
 
-Yeah yeah we're getting to it.
+Yeah yeah, we're getting to it.
 
 ### MNIST
 
-Last week, I was reading the [fast.ai chapter on MNIST](https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb). For the unaware, it's a classification problem in computer vision. Given a 28x28 image of a single digit \[0-9\], predict the digit. They use this once-state-of-the-art  model architecture called ResNet18 as an example of what's theoretically possible with a large and well designed model. 
+Last week, I was reading the [fast.ai chapter on MNIST](https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb). For the unaware, it's a classification problem in computer vision. Given a 28x28 image of a single digit \[0-9\], predict the digit. They use this once-state-of-the-art model architecture called ResNet18 as an example of what's theoretically possible with a large and well-designed model. 
 
-That gets met thinking, if RestNet is able to get ~95% accuracy, how would it do on my atrocious handwriting? 
+That gets me thinking, if RestNet can get ~95% accuracy, how would it do on my atrocious handwriting? 
 
 ![Image](/assets/images/handwriting_example.png)
 
 Yes, that first number is really supposed to be a 0.
 
-### So, how do I actually get examples of my handwriting? 
+### So, how do I get examples of my handwriting? 
 
-Well, I shouldn't use a mouse or a trackpad... that wouldn't really be a fair comparison to handwritten digits.
+Well, I shouldn't use a mouse or a trackpad... that wouldn't be a fair comparison to handwritten digits.
 
 I do have an iPad though, I guess I'll just open Goodnotes, choose a gird-ruled template, and write digits inside each box. Easy enough. The first box looks like it's 64 pixels wide with a border of 3 pixels. Cool.
 
@@ -110,9 +110,9 @@ mnist_dls[0].show_batch()
   <img src="/assets/images/mnist_actual.png" style="width: 48%;" alt="Image 2">
 </div>
 <p></p>
-On the left you can see a sample batch from my dataset, and the batch on the right is from the actual MNIST dataset.
+On the left, you can see a sample batch from my dataset, and the batch on the right is from the actual MNIST dataset.
 
-So for one, I'm clearly flipping the background and foreground colors. So let's flip everything.
+So for one, I'm flipping the background and foreground colors. So let's broadcast and 1 by the array.
 
 {% highlight python %}
 def convert_for_numpy(image): 
@@ -121,16 +121,16 @@ def convert_for_numpy(image):
     return array
 {% endhighlight %}
 
-But wait, what the heck are those grey lines on the bottom? I thought I properly handled everything being a 64x64 square with a 3 pixel border...
+But wait, what the heck are those grey lines on the bottom? I thought I properly handled everything being a 64x64 square with a 3-pixel border...
 
   <div style="display: flex; justify-content: space-between; width: 100%;">
     <img src="/assets/images/mismatch1.png" style="width: 48%;" alt="A consistent three-pixel width border between the cells">
     <img src="/assets/images/mismatch2.png" style="width: 48%;" alt="A mixed four-pixel width horizontal border with a three-pixel width vertical border">
   </div>
 <p></p>
-Ugh damnit... somewhere along the way from Goodnotes, to its pdf export, to the import into Photoshop, the blurring is occurring somewhere and the lines on the grid are not a consistent width and height.
+Ugh, damn it... somewhere along the way from Goodnotes, to its pdf export, to the import into Photoshop, the blurring is occurring somewhere and the lines on the grid are not a consistent width and height.
 
-Screw it, I'm just going to directly write in Photoshop Express on my iPad. The writing and UI experience is a lot worse, there's constant screw-ups with mis-touches but at least I don't have to manually go in and edit the image, or actually find where this went wrong.
+Screw it, I'm just going to directly write in Photoshop Express on my iPad. The writing and UI experience is a lot worse, there are constant screw-ups with mis-touches but at least I don't have to manually go in and edit the image, or actually put in the effort to find where this went wrong.
 
 <div style="display:flex; justify-content:center">
   <img src="/assets/images/minstredo.png" style="max-width: 100%;height:100%;max-height:400px;vertical-align:middle" alt="A corrected list of my writing">
@@ -140,9 +140,9 @@ Screw it, I'm just going to directly write in Photoshop Express on my iPad. The 
 
 Okay, finally, a decent set of data that I mostly trust. 
 
-> Q: Wait, why not use an HTMl Canvas like [this](https://github.com/rhammell/mnist-draw)?
+> Q: Wait, why not use an HTML Canvas like [this](https://github.com/rhammell/mnist-draw)?
 
-Because I didn't think of that at the time. Also, I will argue the that writing a single digit in a single box doesn't quite transfer to how my handwriting issues really show. Copying slowly in the same box over and over is naturally going to be a lot cleaner and less presentative of writing across a line, across multiple lines. MNIST's data collection was based on a [form which has a mix of both](https://www.nist.gov/image/sd19jpg). If anyone with Dysgraphia wants to start working on a dysgraphic version of the MNIST dataset, it would be fun to build a collection site for it.
+Because I didn't think of that at the time. Also, I will argue that writing a single digit in the same box over and over isn't representative of real handwriting. A fair number of my legibility issues crop up when writing across a line. Copying slowly in the same box over and over is naturally going to be a lot cleaner and less presentative of writing across a line, across multiple lines. MNIST's data collection was based on a [form which has a mix of both](https://www.nist.gov/image/sd19jpg). If anyone with Dysgraphia wants to start working on a dysgraphic version of the MNIST dataset, it would be fun to build a collection site for it.
 
 
 ### Analyzing the performance
@@ -151,7 +151,7 @@ Because I didn't think of that at the time. Also, I will argue the that writing 
 |------------|-------------------|
 | 14.702737808227539  | 0.390625|
 
-Running validate on the corrected dataset of my handwriting, we're up to about 40% accuracy. That's better but still not great. Although, I guess I was _expecting_ the model to be bad. Let's see which labels it's having trouble with.
+Running `validate` on the corrected dataset of my handwriting, we're up to about 40% accuracy. That's better but still not great. Although, I guess I was _expecting_ the model to be bad. Let's see which labels it's having trouble with.
 
 <div style="display:flex; justify-content:center">
   <img src="/assets/images/confusion_matrix.png" style="max-width: 100%;height:100%;max-height:400px;vertical-align:middle" alt="A corrected list of my writing">
@@ -396,11 +396,13 @@ Then again, cropping isn't quite center of mass. I could be introducing some err
 
 ### In conclusion
 
-ResNet still mostly sucks at reading my handwriting but not as much as before. I think the biggest surprise to me is that data augmentation of MNIST provided the best accuracy results for my handwriting, much more than sanitizing my own dataset to fit MNIST. I did have some intuition around what would best mirror my own handwriting style but outside of rotation much of it was simply trying to account for resizing. Maybe I'll try only transforming with rotation if I ever come back to this.
+ResNet still mostly sucks at reading my handwriting but not as much as before. 
+
+The biggest surprise for me is that data augmentation of MNIST provided the best accuracy results for my handwriting. I was expecting that my data was representative of MNIST and that sanitizing my own dataset to fit MNIST would have yielded the best results. I did use some intuition in deciding on the augmentation hyperparameters but outside of rotation much of it was simply trying to account for resizing. Maybe I'll try only transforming with rotation if I ever come back to this.
 
 This has been a much longer project (about a day) than I had thought it would be. Thanks for reading if you've gotten this far. 
 
 I'll end with three things,
 1. Dysgraphia exists
 2. If you're a programmer with dysgraphia please reach out if you ever want to work on anything
-3. I hate whiteboard interviews. Forever thankful the pandemic killed those.
+3. I hate whiteboard interviews where I have to physically write on a whiteboard. I'm forever thankful the pandemic killed those.
