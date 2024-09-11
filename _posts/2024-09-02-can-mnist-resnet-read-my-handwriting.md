@@ -112,7 +112,7 @@ mnist_dls[0].show_batch()
 <p></p>
 On the left, you can see a sample batch from my dataset, and the batch on the right is from the actual MNIST dataset.
 
-So for one, I'm flipping the background and foreground colors. So let's broadcast and 1 by the array.
+So for one, I'm flipping the background and foreground colors. So let's broadcast and subtract 1 by the array.
 
 {% highlight python %}
 def convert_for_numpy(image): 
@@ -398,7 +398,7 @@ Then again, cropping isn't quite center of mass. I could be introducing some err
 
 ResNet still mostly sucks at reading my handwriting but not as much as before. 
 
-The biggest surprise for me is that data augmentation of MNIST provided the best accuracy results for my handwriting. I was expecting that my data was representative of MNIST and that sanitizing my own dataset to fit MNIST would have yielded the best results. I did use some intuition in deciding on the augmentation hyperparameters but outside of rotation much of it was simply trying to account for resizing. Maybe I'll try only transforming with rotation if I ever come back to this.
+The biggest surprise for me is that data augmentation of MNIST provided the best accuracy results for my handwriting. I figured that my data wasn't representative of MNIST and that sanitizing my own dataset to fit MNIST would have yielded the best results. You could say I used some intuition in deciding on the augmentation hyperparameters but outside of rotation much of the augmentation was simply trying to account for resizing which _should_ have been handled during data cleaning. Maybe I'll try a run where I only transform with rotation if I ever come back to this.
 
 This has been a much longer project (about a day) than I had thought it would be. Thanks for reading if you've gotten this far. 
 
