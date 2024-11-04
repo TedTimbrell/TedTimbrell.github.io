@@ -8,7 +8,7 @@ When I was 11 years old I was told I had a learning disability called [Dysgraphi
 
 Dysgraphia isn't super well-known. It's also, given the DSM-5 name, not well categorized yet. All that is to say, everyone's experience of this may be different. Just in case you think I'm full of it, I'll quote from the report of an occupational therapist who tested me when I was 15.
 
-> Standardized testing reveals significant deficits in visual motor integration (scores in the first percentile visual motor search and visual motor speed) for an individual in his age group. Standardized testing also indicates moderate deficits in 2 areas of fine motor function (fine motor precision and manual dexterity) for an individual in his age group. Deficits in these areas affect an individual's ability to complete graphomotor tasks with adequate speed, legibility, and efficiency. Ted demonstrates rapid hand fatigue with only g minutes of continuous writing.
+> Standardized testing reveals significant deficits in visual motor integration (scores in the first percentile visual motor search and visual motor speed) for an individual in his age group. Standardized testing also indicates moderate deficits in 2 areas of fine motor function (fine motor precision and manual dexterity) for an individual in his age group. Deficits in these areas affect an individual's ability to complete graphomotor tasks with adequate speed, legibility, and efficiency. Ted demonstrates rapid hand fatigue with only 8 minutes of continuous writing.
 
 I never actually read this report until this week. I remember my mom sending it to me and my eyes glazing over after reading the first paragraph. I was a pretty unfocused kid and as long as that report let me type for standardized tests \(like the SAT\), then I was happy. 
 
@@ -312,17 +312,13 @@ def center_digit(image):
     # to disk again
     _, height, width = image.shape
     
-    # Convert image to grayscale by taking the mean across the channels
     grayscale_image = np.mean(image, axis=0)
     
-    # Calculate the center of mass of the grayscale image
     com = center_of_mass(grayscale_image)
     
-    # Determine the shift required to center the center of mass
     shift_y = round((height / 2) - com[0])
     shift_x = round((width / 2) - com[1])
     
-    # Apply the shift to all channels
     shifted_image = np.array([shift(channel, (shift_y, shift_x), mode='constant', cval=0) for channel in image])
     
     return shifted_image
@@ -346,7 +342,6 @@ def process_image(image_array):
     # Ensure the array is in the format (x, y, channels), once again, don't ask
     image_array = np.transpose(image_array, (1, 2, 0))
 
-    # Convert to grayscale by summing the channels
     grayscale = np.sum(image_array, axis=-1)
     grayscale[grayscale < 0.01] = 0
 
@@ -356,7 +351,6 @@ def process_image(image_array):
     ymin, ymax = np.where(rows)[0][[0, -1]]
     xmin, xmax = np.where(cols)[0][[0, -1]]
 
-    # Crop the original image using the bounding box
     cropped = image_array[ymin:ymax+1, xmin:xmax+1]
 
     # Create a new square image that is big enough to hold the cropped image
@@ -367,19 +361,14 @@ def process_image(image_array):
     y_offset = (size - cropped.shape[0]) // 2
     x_offset = (size - cropped.shape[1]) // 2
 
-    # Place the cropped image in the center of the new image
     new_image[y_offset:y_offset+cropped.shape[0], x_offset:x_offset+cropped.shape[1]] = cropped
 
 
-    # Multiply by 255 to bring the values back to the [0, 255] range
     array = (new_image * 255).astype(np.uint8)
-    # Convert the numpy array to a PIL Image
     pil_image = Image.fromarray(array)
 
-    # Resize the image to 20x20 pixels
     resized_image = pil_image.resize((20, 20), Image.ANTIALIAS)
 
-    # Add 4px padding around the image
     final_image = ImageOps.expand(resized_image, border=4, fill=0)
 
     return final_image
