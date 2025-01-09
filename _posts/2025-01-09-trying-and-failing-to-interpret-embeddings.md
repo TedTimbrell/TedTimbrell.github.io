@@ -17,7 +17,7 @@ If you have any ideas or corrections, please email me at `ted@timbrell.dev`
 
 
 ## Background
-My inspiration for this comes from [_Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings_](https://arxiv.org/pdf/1607.06520). Except in this case, I'm using sentence embeddings rather than word embeddings. If I want to embed smells, I'll need to be able to input "the smell of red wine."
+My inspiration for this comes from [_Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings_](https://arxiv.org/pdf/1607.06520). Except in this case, I'm using sentence embeddings rather than word embeddings. If I want to embed smells, I'll need to be able to input something like, "the smell of red wine."
 
 ```python
 from openai import OpenAI
@@ -62,9 +62,9 @@ son, daughter, actor, actress, steward, stewardess = get_embedding_openai([
 
 > Q: Wait aren't you supposed to be using smells?
 
-It's pretty hard to reason about something you can't experience. I might know fresh coffee smells good in the morning but I can't tell how similar/dissimilar that is the smell of dew in the morning. I'll get to smells in a later post. 
+It's pretty hard to reason about something you can't experience. I might know fresh coffee smells good in the morning but I can't tell how similar/dissimilar that is to the smell of dew in the morning. I'll get to smells in a later post. 
 
-I'm already making a jump from word embeddings to sentence embeddings so I believe it's worth revisitng gender before moving on. It also has the benefit of being easy to generate examples for and is built into the English language. I'll be using cosine similarity and Euclidean distance to get a sense of the distance between the vectors.
+I'm already making a jump from word embeddings to sentence embeddings so I believe it's worth revisiting gender before moving on. It also has the benefit of being easy to generate examples for and is built into the English language. I'll be using cosine similarity and Euclidean distance to get a sense of the distance between the vectors.
 
 
 ```python
@@ -109,7 +109,7 @@ print(f"{euc_dist(king, added_queen)=}")
     euc_dist(king, added_queen)=np.float64(23.88454184561374)
 
 
-Well, that's annoying. Unlike what I'd expect from the word embedding paper, our vector for "Queen" plus the gender offset is further away from the vector for "King" both in angle and Euclidean distance.
+Well, that's annoying. Unlike what I'd expect from the word embedding paper, *the vector for "Queen" plus the gender offset is further away from the vector for "King" both in angle and Euclidean distance*.
 
 I'm also surprised by just how little the similarity metrics moved. Then again, the geometry is unclear here. The vector offset might be going in the wrong direction or under/overshooting.
 
@@ -126,7 +126,7 @@ f"man - woman offset magnitude: {np.linalg.norm(male_offset)}", f"King - queen o
 
 
 
-So we're moving, roughly, the same distance as we'd need to reach the "king" vector.
+So it's moving, roughly, the same distance as it would need to reach the "king" vector.
 
 
 ```python
@@ -142,7 +142,7 @@ f"{np.arccos(cosine_similarity(king, queen))} radians between king and queen"
 
 
 
-And we're changing our angle by roughly the same amount as expected... just not in the right direction.
+And changing the angle by roughly the same amount as expected... just not in the right direction.
 
 ### Let's take a look at the cosine similarity between these gendered offsets
 
@@ -262,9 +262,9 @@ Despite the thought that these are just gendered versions of the same concept...
 ## Rotation
 I'm not up to date on research into embeddings but I find the use of vector addition for these analyses odd. I know that these vectors are generated through a series of additions and activations but if these models are normalizing everything to a unit vector and comparing everything with cosine similarity are we not inherently saying that it's the angles that matter?
 
-To that end, what if I rotate the "queen" vector along the plane created by the "man" and "woman" vectors? The vectors for "king" and "queen" have to be offset from our vectors for "man" and "woman". We also know that embeddings capture more concepts than just the N dimensions represented in the vector. A rotation, while more expensive, could help in the case of an angular difference between the initial vector pair and the compared vector pair.
+To that end, what if I rotate the "queen" vector along the plane created by the "man" and "woman" vectors? The vectors for "king" and "queen" have to be offset from our vectors for "man" and "woman". Sentence embeddings capture more concepts than just the N dimensions represented in the vector. So we know that some correlation between axises is required to encode everything. A rotation, while more expensive, could help in the case of an angular difference between the initial vector pair and the compared vector pair.
 
-Below, we try rotating our queen vector with the rotation matrix found from getting to "man" from "woman".
+Below, I try rotating our "queen" vector with the rotation matrix found from getting to "man" from "woman".
 
 
 ```python
@@ -412,11 +412,11 @@ np.arccos(0.756197)- np.arccos(0.800727)
 
 
 
-The rotation helps! Though, it only moves us 0.07 radians (4 degrees) closer. 
+The rotation helps! Though, it only moves the vector 0.07 radians (4 degrees) closer. 
 
 ### Let's try with other gendered titles.
 
-Below we try with "prince" and "princess",
+Below I try with "prince" and "princess",
 
 
 ```python
