@@ -116,7 +116,7 @@ And, in the end, you're still left at the whims of how each site decides to styl
 >Developing an extension for Meet? An add-on would work better.
 >Extensions frequently cause user issues by altering the page.
 
-## Face Detection and Body Segmentation 
+## Face detection and body segmentation 
 One of the great things about tensorflow.js is that [it comes with a bunch of browser-sized models out of the box](https://www.tensorflow.org/js/models). 
 
 ### Face detection
@@ -143,7 +143,7 @@ Unfortunately the MediaPipeFaceDetector had a critical flaw. Shown below, if a p
 
 Thinking back, perhaps I could have recursively called the  model on the image within the bounding box and checked for larger deviations? Anyway, something I'll leave for future work.
 
-### Body Segmentation
+### Body segmentation
 Wait, is that an image from their readme blurring _only_ faces?
 
 ![Face blur demo from Tensorflow.js](https://github.com/tensorflow/tfjs-models/raw/master/body-segmentation/images/three_people_faceblur.jpg)
